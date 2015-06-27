@@ -2,13 +2,14 @@ var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
   Content = mongoose.model('Content');
+_ = require('underscore');
 
 module.exports = function (app) {
   app.use('/content', router);
 };
 
 router.get('/:id', function (req, res, next) {
-  Content.findOne({_id:  req.getParameter('id')}, function (err, content) {
+  Content.findOne({_id:  req.params.id}, function (err, content) {
     if (err) return next(err);
     res.status(200).json(content);
   });
@@ -39,12 +40,16 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  if(isBad(type) ) {
+  if(isBad(type)  ) {
     res.status(403).json({
       message: "Empty type"
     });
   }
-
+  var types = ["text", "audio", "video"];
+  if( types.indexOf(type)<0  ) {
+    res.status(403).json({
+      message: "Type should be, text, video, audio"});
+  }
 
   var content  = new Content({
     title: title,
