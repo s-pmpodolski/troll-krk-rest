@@ -9,7 +9,7 @@ var config = {
       name: 'troll-krk-rest'
     },
     port: 3000,
-    db: 'mongodb://localhost/troll-krk-rest-development'
+    db: MONGOHQ_URL || 'mongodb://localhost/troll-krk-rest-development'
   },
 
   test: {
@@ -26,7 +26,7 @@ var config = {
     app: {
       name: 'troll-krk-rest'
     },
-    port: 3000,
+    port: (process.env.PORT || 5000),
     db: 'mongodb://localhost/troll-krk-rest-production'
   }
 };
