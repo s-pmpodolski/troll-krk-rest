@@ -4,7 +4,7 @@ var express = require('express'),
   Content = mongoose.model('Content');
 
 module.exports = function (app) {
-  app.use('/', router);
+  app.use('/content', router);
 };
 
 router.get('/:id', function (req, res, next) {

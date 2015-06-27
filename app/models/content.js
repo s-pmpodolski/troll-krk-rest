@@ -1,7 +1,7 @@
 // Example model
 
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema;
+ Schema = mongoose.Schema;
  shortid = require('shortid');
 
 

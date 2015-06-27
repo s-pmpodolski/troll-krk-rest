@@ -17,4 +17,9 @@ GET:
 curl http://localhost:3000/beacon/:bid
 
 ### Utworzenie nowego beaconu:
-curl --data "name=hub:raum&latitude=50.0487225&longitude=19.9600163" http://localhost:3000/beacon/create
+curl --data "_id=eP7H&name=hub:raum&latitude=50.0487225&longitude=19.9600163" http://localhost:3000/beacon/create
+
+
+## Relacja beacon - content:
+
+relate
