@@ -38,7 +38,7 @@ router.post('/', function (req, res, next) {
       $near: coords,
       $maxDistance: maxDistance
     }
-  }).exec(function(err, beacons) {
+  }).exec(function (err, beacons) {
     if (err) {
       return res.status(500).json({
         message: err
@@ -65,25 +65,25 @@ router.post('/create', function (req, res, next) {
     longitude = req.body.longitude,
     _id = req.body._id;
 
-  if(_.isUndefined(name) || _.isEmpty(name)) {
+  if (_.isUndefined(name) || _.isEmpty(name)) {
     res.status(403).json({
       message: "Empty/undefined name"
     });
   }
 
-  if(_.isUndefined(_id) || _.isEmpty(_id)) {
+  if (_.isUndefined(_id) || _.isEmpty(_id)) {
     res.status(403).json({
       message: "Empty/undefined _id"
     });
   }
 
-  if(_.isUndefined(latitude) || _.isEmpty(latitude)) {
+  if (_.isUndefined(latitude) || _.isEmpty(latitude)) {
     res.status(403).json({
       message: "Empty/undefined latitude"
     });
   }
 
-  if(_.isUndefined(longitude) || _.isEmpty(longitude)) {
+  if (_.isUndefined(longitude) || _.isEmpty(longitude)) {
     res.status(403).json({
       message: "Empty/undefined longitude"
     });
@@ -102,10 +102,11 @@ router.post('/create', function (req, res, next) {
       res.status(500).json({
         message: "couldn't create object. Error: " + err
       });
+    } else {
+      res.status(200).json({
+        message: "ok!",
+        id: beacon._id
+      });
     }
-    res.status(200).json({
-      message: "ok!",
-      id: beacon._id
-    });
   });
 });

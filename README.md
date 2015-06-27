@@ -33,7 +33,7 @@ curl http://localhost:3000/relate/:bid
 
 ### Nowa relacja
 POST
-curl --data "beaconId=T631&contentId=VyqJgnDv" http://localhost:5000/relate/create
+curl --data "beaconId=T631&contentId=4JYSTsvP" http://hidden-city.herokuapp.com/relate/create
 
 
 ## Pobranie informacji dla beaconu
