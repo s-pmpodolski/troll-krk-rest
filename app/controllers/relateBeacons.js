@@ -4,8 +4,7 @@ var express = require('express'),
   Beacon = mongoose.model('Beacon'),
   Content = mongoose.model('Content'),
   BeaconContentRelation = mongoose.model('BeaconContentRelation'),
-  _ = require('underscore'),
-  Q = require('Q');
+  _ = require('underscore');
 
 module.exports = function (app) {
   app.use('/relate', router);
