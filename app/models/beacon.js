@@ -7,8 +7,7 @@ var mongoose = require('mongoose'),
 var BeaconSchema = new Schema({
   _id: {
     type: String,
-    unique: true,
-    'default': shortid.generate
+    unique: true
   },
   name: String,
   loc: {

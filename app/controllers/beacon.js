@@ -62,11 +62,18 @@ router.get('/:bid', function (req, res, next) {
 router.post('/create', function (req, res, next) {
   var name = req.body.name,
     latitude = req.body.latitude,
-    longitude = req.body.longitude;
+    longitude = req.body.longitude,
+    _id = req.body._id;
 
   if(_.isUndefined(name) || _.isEmpty(name)) {
     res.status(403).json({
       message: "Empty/undefined name"
+    });
+  }
+
+  if(_.isUndefined(_id) || _.isEmpty(_id)) {
+    res.status(403).json({
+      message: "Empty/undefined _id"
     });
   }
 
@@ -86,7 +93,8 @@ router.post('/create', function (req, res, next) {
 
   var beacon = new Beacon({
     name: '',
-    loc: loc
+    loc: loc,
+    _id: _id
   });
 
   beacon.save(function (err, beacon) {
