@@ -9,8 +9,9 @@ var config = {
     app: {
       name: 'troll-krk-rest'
     },
-    port: 3000,
-    db: 'mongodb://localhost/troll-krk-rest-development'
+    port: process.env.PORT || 5000,
+    db: process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL || 'mongodb://localhost/troll-krk-rest-production'
   },
 
   test: {
@@ -19,8 +20,9 @@ var config = {
     app: {
       name: 'troll-krk-rest'
     },
-    port: 3000,
-    db: 'mongodb://localhost/troll-krk-rest-test'
+    port: process.env.PORT || 5000,
+    db: process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL || 'mongodb://localhost/troll-krk-rest-production'
   },
 
   production: {
@@ -29,8 +31,9 @@ var config = {
     app: {
       name: 'troll-krk-rest'
     },
-    port: 3000,
-    db: 'mongodb://localhost/troll-krk-rest-production'
+    port: process.env.PORT || 5000,
+    db: process.env.MONGOLAB_URI ||
+    process.env.MONGOHQ_URL || 'mongodb://localhost/troll-krk-rest-production'
   }
 };
 
