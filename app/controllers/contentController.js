@@ -26,9 +26,7 @@ router.post('/', function (req, res, next) {
     date_start= req.body.date_start,
     type= req.body.type,
     licence = req.body.licence,
-    image =req.body.image,
-    url  =  req.body.url;
-
+    image =req.body.image;
 
   if(  isBad( title)  ) {
     res.status(403).json({
@@ -65,10 +63,6 @@ router.post('/', function (req, res, next) {
 
   if(image) {
     content.image = image;
-
-  }
-  if(url) {
-    content.url = url;
   }
   content.save(function (err, beacon) {
     if (err) {

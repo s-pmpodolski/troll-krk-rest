@@ -4,6 +4,7 @@ var path = require('path'),
 
 var config = {
   development: {
+    baseUrl : "http://localhost:3000/",
     root: rootPath,
     app: {
       name: 'troll-krk-rest'
@@ -13,6 +14,7 @@ var config = {
   },
 
   test: {
+    baseUrl : "http://localhost:3000/",
     root: rootPath,
     app: {
       name: 'troll-krk-rest'
@@ -22,6 +24,7 @@ var config = {
   },
 
   production: {
+    baseUrl : "http://hidden-city.herokuapp.com/",
     root: rootPath,
     app: {
       name: 'troll-krk-rest'

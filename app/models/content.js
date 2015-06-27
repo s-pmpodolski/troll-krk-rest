@@ -9,7 +9,6 @@ var ContentSchema = new Schema({
   title: String,
   detail: String,
   type: String,
-  url: String,
   image : String,
   date_expire: {type: Date, default: new Date().getTime() + (30 * 24 * 60 * 60 *1000) },
   date_start: {type: Date, default:  Date.now},
