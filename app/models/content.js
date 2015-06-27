@@ -1,15 +1,19 @@
 // Example model
 
 var mongoose = require('mongoose'),
-  Schema = mongoose.Schema,
-  shortid = require('shortid');
+ Schema = mongoose.Schema;
+ shortid = require('shortid');
+
 
 var ContentSchema = new Schema({
   title: String,
   detail: String,
   type: String,
-  date_expire: {type: Date, default: Date.now},
-  date_start: {type: Date, default:  new Date().getTime() + (30 * 24 * 60 * 60) },
+  url: String,
+  image : String,
+  date_expire: {type: Date, default: new Date().getTime() + (30 * 24 * 60 * 60 *1000) },
+  date_start: {type: Date, default:  Date.now},
+  licence  : String,
   _id: {
     type: String,
     unique: true,

@@ -2,13 +2,14 @@ var express = require('express'),
   router = express.Router(),
   mongoose = require('mongoose'),
   Content = mongoose.model('Content');
+_ = require('underscore');
 
 module.exports = function (app) {
   app.use('/content', router);
 };
 
 router.get('/:id', function (req, res, next) {
-  Content.findOne({_id:  req.getParameter('id')}, function (err, content) {
+  Content.findOne({_id:  req.params.id}, function (err, content) {
     if (err) return next(err);
     res.status(200).json(content);
   });
@@ -23,7 +24,10 @@ router.post('/', function (req, res, next) {
     detail = req.body.detail,
     date_expire= req.body.date_expire,
     date_start= req.body.date_start,
-    type= req.body.type;
+    type= req.body.type,
+    licence = req.body.licence,
+    image =req.body.image,
+    url  =  req.body.url;
 
 
   if(  isBad( title)  ) {
@@ -32,18 +36,16 @@ router.post('/', function (req, res, next) {
     });
   }
 
-  if( isBad( detail)   ) {
-    res.status(403).json({
-      message: "Empty detail"
-    });
-  }
-
-  if(isBad(type) ) {
+  if(isBad(type)  ) {
     res.status(403).json({
       message: "Empty type"
     });
   }
-
+  var types = ["text", "audio", "video"];
+  if( types.indexOf(type)<0  ) {
+    res.status(403).json({
+      message: "Type should be, text, video, audio"});
+  }
 
   var content  = new Content({
     title: title,
@@ -57,6 +59,17 @@ router.post('/', function (req, res, next) {
     content.date_start = date_start;
   }
 
+  if(licence) {
+    content.licence = licence;
+  }
+
+  if(image) {
+    content.image = image;
+
+  }
+  if(url) {
+    content.url = url;
+  }
   content.save(function (err, beacon) {
     if (err) {
       res.status(500).json({
