@@ -34,3 +34,10 @@ curl http://localhost:3000/relate/:bid
 ### Nowa relacja
 POST
 curl --data "beaconId=eP7H&contentId=asdf" http://localhost:3000/relate/create
+
+
+## Pobranie informacji dla beaconu
+
+### Pobranie informacji
+
+curl http://localhost:3000/notification/asdf
