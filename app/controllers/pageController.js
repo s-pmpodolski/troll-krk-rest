@@ -11,10 +11,16 @@ module.exports = function (app) {
 router.get('/:id', function (req, res, next) {
   Content.findOne({_id:  req.params.id}, function (err, content) {
     if (err) return next(err);
-    res.render('page', {
-      title: content.title,
-      content: content
-    });
+    if ( content && content.title) {
+      res.render('page', {
+        title: content.title,
+        content: content
+      });
+    }else{
+      res.status(404).json({
+        message: "Error",
+      });
+    }
   });
 });
 
