@@ -21,11 +21,14 @@ var isBad = function (obj) {
 
 router.post('/', function (req, res, next) {
   var title = req.body.title,
+    detailShort = req.body.detailShort,
     detail = req.body.detail,
     date_expire= req.body.date_expire,
     date_start= req.body.date_start,
     type= req.body.type,
     licence = req.body.licence,
+    author= req.body.author,
+    source = req.body.source,
     image =req.body.image;
 
   if(  isBad( title)  ) {
@@ -63,6 +66,15 @@ router.post('/', function (req, res, next) {
 
   if(image) {
     content.image = image;
+  }
+  if(author) {
+    content.author = author;
+  }
+  if(source) {
+    content.source = source;
+  }
+  if(detailShort) {
+    content.detailShort = detailShort;
   }
   content.save(function (err, beacon) {
     if (err) {

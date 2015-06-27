@@ -13,6 +13,8 @@ var ContentSchema = new Schema({
   date_expire: {type: Date, default: new Date().getTime() + (30 * 24 * 60 * 60 *1000) },
   date_start: {type: Date, default:  Date.now},
   licence  : String,
+  author: String,
+  source: String,
   _id: {
     type: String,
     unique: true,
