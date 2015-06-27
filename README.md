@@ -6,7 +6,7 @@
 
 ### Znalezienie beaconow w zakresie maxDistance (km)
 POST:
-curl --data "maxDistance=1&latitude=50.0487225&longitude=19.9600163" http://localhost:3000/beacon
+curl --data "maxDistance=1&latitude=50.0487225&longitude=19.9600163" http://hidden-city.herokuapp.com/beacon
 
 ### Lista wszystkich beaconów
 GET:
@@ -17,7 +17,7 @@ GET:
 curl http://localhost:3000/beacon/:bid
 
 ### Utworzenie nowego beaconu:
-curl --data "_id=eP7H&name=hub:raum&latitude=50.0487225&longitude=19.9600163" http://localhost:3000/beacon/create
+curl --data "_id=T631&name=hub:raum-test&latitude=50.0487225&longitude=19.9600163" http://hidden-city.herokuapp.com/beacon/create
 
 
 ## Relacja beacon - content:
@@ -33,7 +33,7 @@ curl http://localhost:3000/relate/:bid
 
 ### Nowa relacja
 POST
-curl --data "beaconId=eP7H&contentId=asdf" http://localhost:3000/relate/create
+curl --data "beaconId=T631&contentId=4JYSTsvP" http://hidden-city.herokuapp.com/relate/create
 
 
 ## Pobranie informacji dla beaconu

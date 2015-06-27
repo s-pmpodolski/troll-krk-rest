@@ -55,7 +55,7 @@ router.post('/create', function (req, res, next) {
   var beacon, content;
 
   Beacon.findOne({
-    _id: req.params.bid
+    _id: req.params.beaconId
   }, function (err, _beacon) {
     if (err) {
       return res.status(403).json({
@@ -66,7 +66,7 @@ router.post('/create', function (req, res, next) {
   });
 
   Content.findOne({
-    _id: req.params.bid
+    _id: req.params.contentId
   }, function (err, _content) {
     if (err) {
       return res.status(403).json({
