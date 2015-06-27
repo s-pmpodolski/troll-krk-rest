@@ -54,42 +54,43 @@ router.post('/create', function (req, res, next) {
 
   var beacon, content;
 
-  Beacon.findOne({
-    _id: req.params.beaconId
-  }, function (err, _beacon) {
+  //TODO: to refactor
+  //callback hell shit
+  Beacon.findOne(contentId, function (err, _beacon) {
     if (err) {
       return res.status(403).json({
         message: "Error! " + err
       });
     }
     beacon = _beacon;
-  });
 
-  Content.findOne({
-    _id: req.params.contentId
-  }, function (err, _content) {
-    if (err) {
-      return res.status(403).json({
-        message: "Error! " + err
+    Content.findById(contentId, function (err, _content) {
+      if (err) {
+        return res.status(403).json({
+          message: "Error! " + err
+        });
+      }
+      content = _content;
+
+      var beaconContentRelation = new BeaconContentRelation({
+        beacon: beacon._id,
+        content: content._id
       });
-    }
-    content = _content;
-  });
 
-  var beaconContentRelation = new BeaconContentRelation({
-    beacon: beacon,
-    content: content
-  });
-
-  beaconContentRelation.save(function (err, beacon) {
-    if (err) {
-      return res.status(500).json({
-        message: "couldn't create object. Error: " + err
+      beaconContentRelation.save(function (err, beacon) {
+        if (err) {
+          return res.status(500).json({
+            message: "couldn't create object. Error: " + err
+          });
+        }
+        res.status(200).json({
+          message: "ok!",
+          relation: beaconContentRelation
+        });
       });
-    }
-    res.status(200).json({
-      message: "ok!",
-      relation: beaconContentRelation
     });
+
   });
+
+
 });

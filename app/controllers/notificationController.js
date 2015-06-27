@@ -11,19 +11,35 @@ module.exports = function (app) {
 };
 
 function returnRandom(arr) {
-  return arr[Math.random() * arr.length];
+  return arr[Math.floor(Math.random()*arr.length)];
 }
 
 router.get('/:bid', function (req, res, next) {
   BeaconContentRelation.find({
-    'beacon._id': req.params.bid
+    'beacon': req.params.bid
   }, function (err, relations) {
-    if (err) return next(err);
-    console.log(relations);
+    if (err) {
+      return res.status(500).json({
+        message: "couldn't create object. Error: " + err
+      });
+    }
+
     if (relations !== null && relations.length > 0) {
-      res.status(200).json(
-        returnRandom(relations)
-      );
+      console.log(relations);
+      var relation = returnRandom(relations);
+      console.log(relation);
+      var content = relation.content;
+      Content.findById(content,function (err, content) {
+        if (err) {
+          return res.status(500).json({
+            message: "couldn't create object. Error: " + err
+          });
+        }
+
+        res.status(200).json(
+          content
+        );
+      });
     } else {
       res.status(404).json({
         message: 'empty'

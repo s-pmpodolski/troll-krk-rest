@@ -41,3 +41,5 @@ curl --data "beaconId=T631&contentId=4JYSTsvP" http://hidden-city.herokuapp.com/
 ### Pobranie informacji
 
 curl http://localhost:3000/notification/asdf
+
+curl --data "title=Buba&detail=zgrubienie od: bubek &image=http://i.imgur.com/9Yxekwq.jpg&type=text" http://localhost:5000/content
