@@ -4,6 +4,15 @@
       {{> sectionFirst}}
     </section>
     <section class="firstSection scene two">
+      {{#if_eq content.type  "audio"}}
+        {{> audioContent}}
+      {{/if_eq}}
+      {{#if_eq content.type  "video"}}
+        {{> videoContent}}
+      {{/if_eq}}
+      {{#if_eq content.type  "text"}}
+        {{> textContent}}
+      {{/if_eq}}
       {{> sectionSecond}}
     </section>
 </div>

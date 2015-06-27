@@ -9,11 +9,24 @@ var compress = require('compression');
 var methodOverride = require('method-override');
 var exphbs  = require('express-handlebars');
 
+var hbs = exphbs.create({
+  // Specify helpers which are only registered on this instance.
+
+});
+
 module.exports = function(app, config) {
   app.engine('handlebars', exphbs({
+
     layoutsDir: config.root + '/app/views/layouts/',
     defaultLayout: 'main',
-    partialsDir: [config.root + '/app/views/partials/']
+    partialsDir: [config.root + '/app/views/partials/'],
+    helpers: {
+      'if_eq':function(a, b, opts) {
+        if (a == b) // Or === depending on your needs
+          return opts.fn(this);
+        else
+          return opts.inverse(this);
+      }}
   }));
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'handlebars');
@@ -43,7 +56,7 @@ module.exports = function(app, config) {
     err.status = 404;
     next(err);
   });
-  
+
   if(app.get('env') === 'development'){
     app.use(function (err, req, res, next) {
       res.status(err.status || 500);
