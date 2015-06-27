@@ -7,12 +7,14 @@ var mongoose = require('mongoose'),
 var BeaconSchema = new Schema({
   _id: {
     type: String,
-    unique: true
+    unique: true,
+    required: true
   },
   name: String,
   loc: {
     type: [Number],  // [<longitude>, <latitude>]
-    index: '2d'      // create the geospatial index
+    index: '2d',      // create the geospatial index
+    required: true
     //http://blog.robertonodi.me/how-to-use-geospatial-indexing-in-mongodb-using-express-and-mongoose/
   }
 });
