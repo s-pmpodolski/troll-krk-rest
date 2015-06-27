@@ -164,7 +164,7 @@
         return $.easing.easeOutBounce (x, t*2-d, 0, c, d) * .5 + c*.5 + b;
       }
     });})(jQuery);
-z
+
 
 /*!
  * jQuery scrollify

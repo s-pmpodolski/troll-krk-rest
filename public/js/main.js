@@ -3,6 +3,6 @@
 (function($) {
   $("section").cover();
   $.scrollify({
-    section : "section",
+    section : "section"
   });
 })(jQuery);
