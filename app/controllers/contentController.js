@@ -29,6 +29,7 @@ router.post('/', function (req, res, next) {
     licence = req.body.licence,
     author= req.body.author,
     source = req.body.source,
+    address= req.body.address,
     image =req.body.image;
 
   if(  isBad( title)  ) {
@@ -76,6 +77,10 @@ router.post('/', function (req, res, next) {
   if(detailShort) {
     content.detailShort = detailShort;
   }
+  if(address) {
+    content.address = address;
+  }
+
   content.save(function (err, beacon) {
     if (err) {
       res.status(500).json({

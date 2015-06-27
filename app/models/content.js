@@ -15,6 +15,8 @@ var ContentSchema = new Schema({
   licence  : String,
   author: String,
   source: String,
+  address: String,
+  detailShort: String,
   _id: {
     type: String,
     unique: true,

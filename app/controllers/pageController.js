@@ -11,7 +11,7 @@ module.exports = function (app) {
 router.get('/:id', function (req, res, next) {
   Content.findOne({_id:  req.params.id}, function (err, content) {
     if (err) return next(err);
-    res.render('index', {
+    res.render('page', {
       title: content.title,
       content: content
     });

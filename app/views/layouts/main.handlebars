@@ -4,16 +4,18 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width">
   <title>{{title }}</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <link rel="stylesheet" href="/css/style.css"/>
+    <link href='http://fonts.googleapis.com/css?family=Old+Standard+TT' rel='stylesheet' type='text/css'>
+    <link href='http://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
   {{#if ENV_DEVELOPMENT}}
     <script src="http://localhost:35729/livereload.js"></script>
   {{/if}}
+
 </head>
 <body>
-
-
   {{{body}}}
-
-
   </body>
+<script src="//code.jquery.com/jquery-1.11.3.min.js"></script>
+<script src="/js/cover.js"></script>
+<script src="/js/main.js"></script>
 </html>
