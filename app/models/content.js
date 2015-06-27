@@ -9,6 +9,11 @@ var ContentSchema = new Schema({
   type: String,
   date_expire: {type: Date, default: Date.now},
   date_start: {type: Date, default:  new Date().getTime() + (30 * 24 * 60 * 60) }
+  _id: {
+    type: String,
+    unique: true,
+    'default': shortid.generate
+  }
 });
 
 
