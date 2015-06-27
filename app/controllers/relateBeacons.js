@@ -23,9 +23,15 @@ router.get('/:bid', function (req, res, next) {
     'beacon._id': req.params.bid
   }, function (err, relation) {
     if (err) return next(err);
-    res.status(200).json(
-      relation
-    );
+    if(relation !== null) {
+      res.status(200).json(
+        relation
+      );
+    } else {
+      res.status(404).json({
+        message: 'beacon not found'
+      });
+    }
   });
 });
 
