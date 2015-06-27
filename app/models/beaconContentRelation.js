@@ -6,10 +6,10 @@ var mongoose = require('mongoose'),
 
 var BeaconContentRelationSchema = new Schema({
   beacon: {
-    type: Schema.ObjectId, ref: 'Beacon', index: true, required: true
+    type: String, ref: 'Beacon', index: true, required: true
   },
   content: {
-    type: Schema.ObjectId, ref: 'ContentSchema', index: true, required: true
+    type: String, ref: 'ContentSchema', index: true, required: true
   }
 });
 
