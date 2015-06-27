@@ -25,18 +25,14 @@ router.post('/', function (req, res, next) {
     date_expire= req.body.date_expire,
     date_start= req.body.date_start,
     type= req.body.type,
-    licence = req.body.licence;
+    licence = req.body.licence,
+    image =req.body.image,
+    url  =  req.body.url;
 
 
   if(  isBad( title)  ) {
     res.status(403).json({
       message: "Empty undefined name"
-    });
-  }
-
-  if( isBad( detail)   ) {
-    res.status(403).json({
-      message: "Empty detail"
     });
   }
 
@@ -65,6 +61,14 @@ router.post('/', function (req, res, next) {
 
   if(licence) {
     content.licence = licence;
+  }
+
+  if(image) {
+    content.image = image;
+
+  }
+  if(url) {
+    content.url = url;
   }
   content.save(function (err, beacon) {
     if (err) {
