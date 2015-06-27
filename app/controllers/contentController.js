@@ -23,7 +23,8 @@ router.post('/', function (req, res, next) {
     detail = req.body.detail,
     date_expire= req.body.date_expire,
     date_start= req.body.date_start,
-    type= req.body.type;
+    type= req.body.type,
+    licence = req.body.licence;
 
 
   if(  isBad( title)  ) {
@@ -57,6 +58,9 @@ router.post('/', function (req, res, next) {
     content.date_start = date_start;
   }
 
+  if(licence) {
+    content.licence = licence;
+  }
   content.save(function (err, beacon) {
     if (err) {
       res.status(500).json({
