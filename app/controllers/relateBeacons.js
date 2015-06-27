@@ -20,11 +20,11 @@ router.get('/', function (req, res, next) {
 
 router.get('/:bid', function (req, res, next) {
   BeaconContentRelation.findOne({
-    _id: req.params.bid
-  }, function (err, beacon) {
+    'beacon._id': req.params.bid
+  }, function (err, relation) {
     if (err) return next(err);
     res.status(200).json(
-      beacon
+      relation
     );
   });
 });
