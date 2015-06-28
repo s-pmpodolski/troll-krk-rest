@@ -18,7 +18,7 @@ function returnRandom(arr, device) {
 
   Content.find({ _id: { $in: contentIds }, "deviceIds": {$ne:req.query.device}},function (err, content) {
     if(err) {
-      return res.status(405).json({
+      return res.status(500).json({
         message: "couldn't create object. Error: " + err
       });
     }
@@ -30,6 +30,8 @@ router.get('/:bid', function (req, res, next) {
   BeaconContentRelation.find({
     'beacon': req.params.bid
   }, function (err, relations) {
+    console.log("test");
+
     if (err) {
       return res.status(500).json({
         message: "couldn't create object. Error: " + err
