@@ -27,10 +27,11 @@ function returnRandom(arr, device) {
 }
 
 router.get('/:bid', function (req, res, next) {
+  console.log("req");
+
   BeaconContentRelation.find({
     'beacon': req.params.bid
   }, function (err, relations) {
-    console.log("test");
 
     if (err) {
       return res.status(500).json({
