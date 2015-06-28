@@ -11,5 +11,5 @@ module.exports = function (app) {
 router.get('/:deviceId/:contentId', function (req, res, next) {
 	console.log("" + req.params.contentId + ":" + req.params.deviceId )
 	Content.update({ _id: req.params.contentId }, { $push: { deviceIds: req.params.deviceId } })
-	res.status(200).json(content);
+	res.status(200).json(Content);
 });
