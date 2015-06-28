@@ -1,8 +1,8 @@
 // Example model
 
 var mongoose = require('mongoose'),
- Schema = mongoose.Schema;
- shortid = require('shortid');
+Schema = mongoose.Schema;
+shortid = require('shortid');
 
 
 var ContentSchema = new Schema({
@@ -16,6 +16,7 @@ var ContentSchema = new Schema({
   author: String,
   source: String,
   address: String,
+  deviceIds: Array,
   detailShort: String,
   _id: {
     type: String,
