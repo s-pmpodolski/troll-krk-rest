@@ -1,17 +1,22 @@
 var express = require('express'),
-  router = express.Router(),
-  mongoose = require('mongoose'),
-  Beacon = mongoose.model('Beacon'),
-  Content = mongoose.model('Content'),
-  BeaconContentRelation = mongoose.model('BeaconContentRelation'),
-  _ = require('underscore');
+router = express.Router(),
+mongoose = require('mongoose'),
+Beacon = mongoose.model('Beacon'),
+Content = mongoose.model('Content'),
+BeaconContentRelation = mongoose.model('BeaconContentRelation'),
+_ = require('underscore');
 
 module.exports = function (app) {
   app.use('/notification', router);
 };
 
-function returnRandom(arr) {
-  return arr[Math.floor(Math.random()*arr.length)];
+function returnRandom(arr, device) {
+  console.log("JSON"+ Json.stringyfy(arr));
+  console.log("Device Id"+ device);
+  return arr.filter(function(item){
+    console.log("Device Id"+ item.deviceIds);
+
+    return !item.deviceIds.includes(device)})[Math.floor(Math.random()*arr.length)];
 }
 
 router.get('/:bid', function (req, res, next) {
@@ -26,7 +31,7 @@ router.get('/:bid', function (req, res, next) {
 
     if (relations !== null && relations.length > 0) {
       console.log(relations);
-      var relation = returnRandom(relations);
+      var relation = returnRandom(relations, req.query.device);
       console.log(relation);
       var content = relation.content;
       Content.findById(content,function (err, content) {
@@ -37,7 +42,7 @@ router.get('/:bid', function (req, res, next) {
         }
         res.status(200).json(
           content
-        );
+          );
       });
     } else {
       res.status(404).json({

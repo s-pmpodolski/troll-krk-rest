@@ -9,7 +9,7 @@ module.exports = function (app) {
 };
 
 router.get('/:id', function (req, res, next) {
-  Content.findOne({_id:  req.params.id, "deviceIds": {$ne:req.query.device}}, function (err, content) {
+  Content.findOne({_id:  req.params.id}, function (err, content) {
     if (err) return next(err);
     res.status(200).json(content);
   });
