@@ -15,6 +15,8 @@ function returnRandom(arr, device) {
   console.log("Device Id"+ device);
   return arr.filter(function(item){
     console.log("Device Id"+ item.deviceIds);
+    console.log("Item"+ JSON.stringify(item));
+
     if(!item.deviceIds) return true;
     return !item.deviceIds.includes(device)})[Math.floor(Math.random()*arr.length)];
 }
