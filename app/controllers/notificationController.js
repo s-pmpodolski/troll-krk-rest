@@ -18,7 +18,7 @@ function returnRandom(arr, device) {
 
   Content.find({ _id: { $in: contentIds }, "deviceIds": {$ne:req.query.device}},function (err, content) {
     if(err) {
-      return res.status(404).json({
+      return res.status(405).json({
         message: "couldn't create object. Error: " + err
       });
     }
