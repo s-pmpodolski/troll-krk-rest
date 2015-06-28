@@ -3,6 +3,9 @@
   -webkit-transform: $args;
 }
 
+$page_width: 96%;
+$share_height: 60px;
+
 body {
   margin: 0;
   padding: 0;
@@ -32,7 +35,7 @@ section {
 
     .info {
       overflow: hidden;
-      width: 96%;
+      width: $page_width;
       position:  absolute;
       z-index: 2;
       bottom: 0;
@@ -85,9 +88,17 @@ section {
       }
     }
 
-    .scene.two {
+    &.scene.two {
+      text-align: center;
+
       .text {
+        display: inline-block;
         margin-top: 60px;
+        width: $page_width;
+        top: 0;
+        position: relative;
+        z-index: 2;
+        bottom: 0;
 
         h1 {
           margin-bottom: 15px;
@@ -110,13 +121,25 @@ section {
   }
 }
 
+
 a {
   color: #00B7FF;
 }
 
-
 footer {
-  color: #614141;
+  color: #8f8f8f;
+  position: absolute;
+  bottom: $share_height;
+  padding-bottom: 30px;
+  width: 100%;
+}
+
+.share {
+  width: 100%;
+  height: $share_height;
+  position: absolute;
+  bottom: 0;
+  background-color: #000000;
 }
 
 .video {
