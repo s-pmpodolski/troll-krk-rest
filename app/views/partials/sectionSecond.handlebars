@@ -1,7 +1,13 @@
 <footer>
-    <h5>Autor: {{content.author}}</h5>
-    <h5>Źródło: {{content.source}}</h5>
-    <h5>Licencja: {{content.licence}}</h5>
+  {{#if_set content.author }}
+      <h5>Autor: {{content.author}}</h5>
+  {{/if_set}}
+  {{#if_set content.source }}
+      <h5>Źródło: {{content.source}}</h5>
+  {{/if_set}}
+  {{#if_set content.licence }}
+      <h5>Licencja: {{content.licence}}</h5>
+  {{/if_set}}
 </footer>
 
 <div id="share" class="share ">
