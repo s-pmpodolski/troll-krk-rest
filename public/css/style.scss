@@ -4,6 +4,7 @@
 }
 
 $page_width: 96%;
+$share_height: 60px;
 
 body {
   margin: 0;
@@ -116,4 +117,15 @@ a {
 
 footer {
   color: #8f8f8f;
+  position: absolute;
+  bottom: $share_height;
+  width: 100%;
+}
+
+.share {
+  width: 100%;
+  height: $share_height;
+  position: absolute;
+  bottom: 0;
+  background-color: #000000;
 }
