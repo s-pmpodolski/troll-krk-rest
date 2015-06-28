@@ -100,13 +100,17 @@ a {
 footer {
   color: #8f8f8f;
   position: absolute;
-  bottom: 60px;
-  padding-bottom: 30px;
+  bottom: 35px;
+  padding-bottom: 15px;
   width: 100%; }
+  footer h5 {
+    text-align: left;
+    padding: 5px 0 0 15px;
+    margin: 0; }
 
 .share {
   width: 100%;
-  height: 60px;
+  height: 35px;
   position: absolute;
   bottom: 0;
   background-color: #000000; }
@@ -160,3 +164,39 @@ footer {
   .video iframe {
     min-height: 250px;
     width: 100%; }
+
+.share a {
+  background-color: black !important;
+  float: left;
+  width: 33.33% !important;
+  max-width: 33.33% !important;
+  margin: 0 !important;
+  padding: 0 !important; }
+  .share a.mail {
+    height: 30px;
+    background: url("/images/mailto.svg") no-repeat center center;
+    background-size: 30px 30px; }
+
+.arrow {
+  height: 45px;
+  width: 100%;
+  background: url("/images/strzalka.svg") no-repeat center center;
+  background-size: 35px 35px; }
+
+.audio p {
+  margin: 0 -2%; }
+.audio h1 {
+  font-size: 26px; }
+
+.circular {
+  width: 150px;
+  height: 150px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  background: url(http://link-to-your/image.jpg) no-repeat; }
+  .circular img {
+    width: 100%;
+    height: auto; }

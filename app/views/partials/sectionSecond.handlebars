@@ -1,8 +1,16 @@
 <footer>
-    <h5>{{content.author}}</h5>
-    <h5>{{content.source}}</h5>
-    <h5>{{content.licence}}</h5>
+    <h5>Autor: {{content.author}}</h5>
+    <h5>Źródło: {{content.source}}</h5>
+    <h5>Licencja: {{content.licence}}</h5>
 </footer>
-<div class="share">
 
+<div id="share" class="share ">
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_sharing_toolbox"></div>
+
+    <a class="icon pjc-facebook">  </a>
+    <a class="icon pjc-twitter">  </a>
+    <a  class="mail" href="mailto:?subject=I wanted you to see this site&amp;body=Check out this site {{url}}"
+        title="Share by Email">
+    </a>
 </div>
