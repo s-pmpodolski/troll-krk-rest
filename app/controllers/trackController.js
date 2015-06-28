@@ -10,7 +10,7 @@ module.exports = function (app) {
 
 router.get('/:deviceId/:contentId', function (req, res, next) {
 	console.log("" + req.params.contentId + ":" + req.params.deviceId )
-	Content.update({ _id: req.params.contentId }, { $push: { deviceIds: req.params.deviceId },{upsert:true},function(err){
+	Content.update({ _id: req.params.contentId }, { $push: { deviceIds: req.params.deviceId }},{upsert:true},function(err){
 		if(err){
 			console.log(err);
 		}else{
