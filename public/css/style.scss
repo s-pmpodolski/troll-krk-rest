@@ -93,7 +93,8 @@ section {
         display: inline-block;
         margin-top: 60px;
         width: $page_width;
-        position:  absolute;
+        top: 0;
+        position:  relative;
         z-index: 2;
         bottom: 0;
 
