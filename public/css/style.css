@@ -108,3 +108,28 @@ footer {
   .video iframe {
     min-height: 250px;
     width: 100%; }
+
+.video {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%; }
+  .video h1 {
+    font-size: 26px;
+    padding: 0;
+    margin: 15px 0;
+    font-family: 'Montserrat', sans-serif;
+    line-height: 1;
+    max-height: 60px;
+    font-weight: bold;
+    text-align: center; }
+  .video > div {
+    position: absolute;
+    width: 100%;
+    top: 50%;
+    min-height: 280px;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%); }
+  .video iframe {
+    min-height: 250px;
+    width: 100%; }
