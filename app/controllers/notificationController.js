@@ -11,7 +11,7 @@ module.exports = function (app) {
 };
 
 function returnRandom(arr, device) {
-  console.log("JSON"+ JSON.stringyfy(arr));
+  console.log("JSON"+ JSON.stringify(arr));
   console.log("Device Id"+ device);
   return arr.filter(function(item){
     console.log("Device Id"+ item.deviceIds);
