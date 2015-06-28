@@ -91,10 +91,18 @@ section {
 
         h1 {
           margin-bottom: 15px;
+          font-family: 'Montserrat', sans-serif;
+          line-height: 1;
+          font-size: 33px;
+          font-weight: bold;
         }
 
         p {
-          margin-bottom: 30px
+          margin-bottom: 30px;
+          font-size: 17px;
+          line-height: 1.17;
+          padding: 15px  0  40px  0;
+          font-family: 'Old Standard TT', serif;
         }
       }
     }

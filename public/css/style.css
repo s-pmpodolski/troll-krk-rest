@@ -74,9 +74,17 @@ section {
     section.firstSection .scene.two .text {
       margin-top: 60px; }
       section.firstSection .scene.two .text h1 {
-        margin-bottom: 15px; }
+        margin-bottom: 15px;
+        font-family: 'Montserrat', sans-serif;
+        line-height: 1;
+        font-size: 33px;
+        font-weight: bold; }
       section.firstSection .scene.two .text p {
-        margin-bottom: 30px; }
+        margin-bottom: 30px;
+        font-size: 17px;
+        line-height: 1.17;
+        padding: 15px  0  40px  0;
+        font-family: 'Old Standard TT', serif; }
 
 a {
   color: #00B7FF; }
