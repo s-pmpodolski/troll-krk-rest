@@ -10,6 +10,8 @@ body {
 }
 
 section {
+  min-height: 100vh;
+  min-width:  100vw;
   &.firstSection{
     height: 100%;
     width: 100%;
@@ -83,6 +85,20 @@ section {
       }
     }
 
+    .scene.two {
+      .text {
+        margin-top: 60px;
+
+        h1 {
+          margin-bottom: 15px;
+        }
+
+        p {
+          margin-bottom: 30px
+        }
+      }
+    }
+
   }
 }
 
@@ -91,8 +107,12 @@ a {
 }
 
 
-.video{
-  position:  relative;
+footer {
+  color: #614141;
+}
+
+.video {
+  position: relative;
   overflow: hidden;
   width: 100%;
   height: 100%;
@@ -107,14 +127,14 @@ a {
     font-weight: bold;
     text-align: center;
   }
-  >div {
+  > div {
     position: absolute;
     width: 100%;
     top: 50%;
     min-height: 280px;
-    @include transform(translateY(-50%) );
+    @include transform(translateY(-50%));
   }
-  iframe{
+  iframe {
     min-height: 250px;
     width: 100%;
   }
