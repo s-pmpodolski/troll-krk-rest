@@ -68,6 +68,15 @@ section.firstSection {
       line-height: 1.17;
       padding: 15px  0  40px  0;
       font-family: 'Old Standard TT', serif; }
+  section.firstSection .scene.two .text {
+    margin-top: 60px; }
+    section.firstSection .scene.two .text h1 {
+      margin-bottom: 15px; }
+    section.firstSection .scene.two .text p {
+      margin-bottom: 30px; }
 
 a {
   color: #00B7FF; }
+
+footer {
+  color: #614141; }
