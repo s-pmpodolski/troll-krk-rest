@@ -1,7 +1,7 @@
 var express = require('express'),
-  router = express.Router(),
-  mongoose = require('mongoose'),
-  Content = mongoose.model('Content');
+router = express.Router(),
+mongoose = require('mongoose'),
+Content = mongoose.model('Content');
 _ = require('underscore');
 
 module.exports = function (app) {
@@ -9,7 +9,7 @@ module.exports = function (app) {
 };
 
 router.get('/:id', function (req, res, next) {
-  Content.findOne({_id:  req.params.id}, function (err, content) {
+  Content.findOne({_id:  req.params.id, "deviceIds": {$ne:req.query.device}}, function (err, content) {
     if (err) return next(err);
     res.status(200).json(content);
   });
@@ -21,16 +21,16 @@ var isBad = function (obj) {
 
 router.post('/', function (req, res, next) {
   var title = req.body.title,
-    detailShort = req.body.detailShort,
-    detail = req.body.detail,
-    date_expire= req.body.date_expire,
-    date_start= req.body.date_start,
-    type= req.body.type,
-    licence = req.body.licence,
-    author= req.body.author,
-    source = req.body.source,
-    address= req.body.address,
-    image =req.body.image;
+  detailShort = req.body.detailShort,
+  detail = req.body.detail,
+  date_expire= req.body.date_expire,
+  date_start= req.body.date_start,
+  type= req.body.type,
+  licence = req.body.licence,
+  author= req.body.author,
+  source = req.body.source,
+  address= req.body.address,
+  image =req.body.image;
 
   if(  isBad( title)  ) {
     res.status(403).json({
