@@ -9,10 +9,6 @@ var compress = require('compression');
 var methodOverride = require('method-override');
 var exphbs  = require('express-handlebars');
 
-var hbs = exphbs.create({
-  // Specify helpers which are only registered on this instance.
-
-});
 
 module.exports = function(app, config) {
   app.engine('handlebars', exphbs({
@@ -26,7 +22,15 @@ module.exports = function(app, config) {
           return opts.fn(this);
         else
           return opts.inverse(this);
-      }}
+      },
+      'if_set':function(a,  opts) {
+        if (a ) //
+          return opts.fn(this);
+        else
+          return opts.inverse(this);
+      }
+    }
+
   }));
   app.set('views', config.root + '/app/views');
   app.set('view engine', 'handlebars');

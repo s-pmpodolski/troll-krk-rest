@@ -1,8 +1,21 @@
 <footer>
-    <h5>{{content.author}}</h5>
-    <h5>{{content.source}}</h5>
-    <h5>{{content.licence}}</h5>
+  {{#if_set content.author }}
+      <h5>Autor: {{content.author}}</h5>
+  {{/if_set}}
+  {{#if_set content.source }}
+      <h5>Źródło: {{content.source}}</h5>
+  {{/if_set}}
+  {{#if_set content.licence }}
+      <h5>Licencja: {{content.licence}}</h5>
+  {{/if_set}}
 </footer>
-<div class="share">
 
+<div id="share" class="share ">
+    <!-- Go to www.addthis.com/dashboard to customize your tools -->
+    <div class="addthis_sharing_toolbox"></div>
+    <a class="icon pjc-facebook">  </a>
+    <a class="icon pjc-twitter">  </a>
+    <a  class="mail" href="mailto:?subject=Hiiden city&amp;body= http://hidden-city-landing.herokuapp.com/#{{url}}"
+        title="Share by Email">
+    </a>
 </div>

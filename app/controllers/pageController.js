@@ -14,8 +14,10 @@ router.get('/:id', function (req, res, next) {
     if ( content && content.title) {
       res.render('page', {
         title: content.title,
-        content: content
-      });
+        content: content,
+        url:  req.protocol + '://' + req.get('host') + req.originalUrl
+
+    });
     }else{
       res.status(404).json({
         message: "Error"
