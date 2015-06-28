@@ -16,6 +16,6 @@ router.get('/:deviceId/:contentId', function (req, res, next) {
 		} else {
 			console.log("Successfully added");
 		}
-	} })
+	});
 	res.status(200).json(Content);
 });
