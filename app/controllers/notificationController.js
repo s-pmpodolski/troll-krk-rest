@@ -35,7 +35,6 @@ router.get('/:bid', function (req, res, next) {
             message: "couldn't create object. Error: " + err
           });
         }
-
         res.status(200).json(
           content
         );
