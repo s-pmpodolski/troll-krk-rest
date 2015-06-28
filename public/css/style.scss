@@ -3,6 +3,8 @@
   -webkit-transform: $args;
 }
 
+$page_width: 96%;
+
 body {
   margin: 0;
   padding: 0;
@@ -30,7 +32,7 @@ section {
 
     .info {
       overflow: hidden;
-      width: 96%;
+      width: $page_width;
       position:  absolute;
       z-index: 2;
       bottom: 0;
@@ -84,8 +86,15 @@ section {
     }
 
     .scene.two {
+      text-align: center;
+
       .text {
+        display: inline-block;
         margin-top: 60px;
+        width: $page_width;
+        position:  absolute;
+        z-index: 2;
+        bottom: 0;
 
         h1 {
           margin-bottom: 15px;
