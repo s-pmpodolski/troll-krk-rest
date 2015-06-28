@@ -86,4 +86,15 @@ a {
   color: #00B7FF; }
 
 footer {
-  color: #8f8f8f; }
+  color: #8f8f8f;
+  position: absolute;
+  bottom: 60px;
+  padding-bottom: 30px;
+  width: 100%; }
+
+.share {
+  width: 100%;
+  height: 60px;
+  position: absolute;
+  bottom: 0;
+  background-color: #000000; }
